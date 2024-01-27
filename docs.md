@@ -213,3 +213,16 @@ public async Task<IActionResult> Delete([FromBody] dynamic data)
     });
 }
 ```
+
+### Exec SP
+```c#
+[HttpPost]
+[Route("ExecSp")]
+public async Task<IActionResult> ExecSp([FromBody]dynamic data)
+{
+    return await Task.Run(() =>
+    {
+        return Ok(base.ExecSp((JArray)data, _spName));
+    });
+}
+```
