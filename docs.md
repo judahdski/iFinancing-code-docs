@@ -473,3 +473,23 @@ btnActivity(code: string) {
 }
 //#endregion button Activity
 ```
+
+### Input tag
+
+-   Required tag
+
+```HTML
+<!-- #region field name -->
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="column" class="control-label">Field Name *</label>
+    <input type="text" class="form-control" [ngModel]="model.column" #column="ngModel" name="p_column" maxlength="250" required [readonly]="isReadOnly">
+    <small
+      *ngIf="(column.errors?.required && column.touched) || (column.errors?.required && branchparamForm.submitted)"
+      class="text-danger">
+      Field Name is required
+    </small>
+  </div>
+</div>
+<!-- #endregion field name -->
+```
